@@ -1,27 +1,9 @@
 apply plugin: 'com.android.library'
 
 ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'view-wrapper-edittext'
-
-    publishedGroupId = 'com.adityarathi.viewwrapperedittext'
-    libraryName = 'ViewWrapperEditText'
-    artifact = 'view-wrapper-edittext'
-
-    libraryDescription = 'A LinearLayout customized to add View inside/outside EditTexts'
-
-    siteUrl = 'https://github.com/aditya2705/ViewWrapperEditText'
-    gitUrl = 'https://github.com/aditya2705/ViewWrapperEditText.git'
-
-    libraryVersion = '1.0.0'
-
-    developerId = 'aditya2705'
-    developerName = 'Aditya Rathi'
-    developerEmail = 'adityarathi95@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+    PUBLISH_GROUP_ID = 'com.adityarathi.viewwrapperedittext'
+    PUBLISH_ARTIFACT_ID = 'view-wrapper-edittext'
+    PUBLISH_VERSION = '1.0'
 }
 
 android {
@@ -48,5 +30,6 @@ dependencies {
 
 }
 
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
+
+
