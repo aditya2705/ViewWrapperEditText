@@ -49,7 +49,7 @@ Company: [Alpha Labz](https://www.alphalabz.com)
 ###License
 
 ```
-Copyright 2015 Balys Valentukevicius
+Copyright 2015 Aditya Rathi
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
