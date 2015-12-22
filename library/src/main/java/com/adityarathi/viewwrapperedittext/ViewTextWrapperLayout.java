@@ -36,6 +36,7 @@ public class ViewTextWrapperLayout extends LinearLayout {
         public void onFocusChange(View v, boolean hasFocus) {
             if (hasFocus){
                 focusedEditTextPointer = viewArrayList.indexOf(v);
+                Log.d("Pointer4",focusedEditTextPointer+"");
             }
         }
     };
@@ -93,6 +94,8 @@ public class ViewTextWrapperLayout extends LinearLayout {
 
     public void addViewWithinText(View view){
 
+        Log.d("Pointer1",focusedEditTextPointer+"");
+
         int cursorPosition;
         CustomEditText previousEditText, nextEditText;
 
@@ -128,12 +131,18 @@ public class ViewTextWrapperLayout extends LinearLayout {
         if(previousEditText.getText().toString().equals("")){
             removeView(previousEditText);
             viewArrayList.remove(previousEditText);
-            --focusedEditTextPointer;
+            if(nextEditText.isFocused()){
+                focusedEditTextPointer = viewArrayList.indexOf(nextEditText);
+            }
         }
+
+        Log.d("Pointer2",focusedEditTextPointer+"");
 
     }
 
     public void deleteViewWithinText(View view){
+
+        Log.d("Pointer3",focusedEditTextPointer+"");
 
         removePointer = viewArrayList.indexOf(view);
 
@@ -152,8 +161,6 @@ public class ViewTextWrapperLayout extends LinearLayout {
             bodyTopMergeBelow=true;
         }
 
-        Log.d("REACHED1","YES");
-
         if (mergeEditTexts) {
 
             CustomEditText editTextAbove = (CustomEditText) viewArrayList.get(removePointer - 1);
@@ -170,7 +177,6 @@ public class ViewTextWrapperLayout extends LinearLayout {
 
         } else {
 
-            Log.d("REACHED2","YES");
 
             if(bodyTopMergeBelow) {
 
@@ -179,12 +185,21 @@ public class ViewTextWrapperLayout extends LinearLayout {
 
             }
 
+            if((removePointer-1)>=0 && viewArrayList.get(removePointer-1) instanceof CustomEditText){
+                focusedEditTextPointer = removePointer-1;
+            }else{
+                focusedEditTextPointer = removePointer;
+            }
+
             removeViewAt(removePointer);
             viewArrayList.remove(removePointer);
 
+
+
         }
 
-        Log.d("REACHED3","YES");
+
+        Log.d("Pointer4",focusedEditTextPointer+"");
 
 
     }
