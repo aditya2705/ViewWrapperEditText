@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -31,6 +32,16 @@ public class ViewTextWrapperLayout extends LinearLayout {
     private CustomEditText bodyMainEditText;
 
     private String bodyMainHint="";
+
+    private boolean generateSameTypeOfEditTexts = true;
+
+    public boolean isGenerateSameTypeOfEditTexts() {
+        return generateSameTypeOfEditTexts;
+    }
+
+    public void setGenerateSameTypeOfEditTexts(boolean generateSameTypeOfEditTexts) {
+        this.generateSameTypeOfEditTexts = generateSameTypeOfEditTexts;
+    }
 
     private OnFocusChangeListener focusListener = new OnFocusChangeListener() {
         public void onFocusChange(View v, boolean hasFocus) {
@@ -87,24 +98,37 @@ public class ViewTextWrapperLayout extends LinearLayout {
             viewArrayList.add(bodyMainEditText);
             addView(bodyMainEditText,0);
 
-
         }
 
     }
 
     public void addViewWithinText(View view){
 
+        CustomEditText nextEditText;
+        nextEditText = new CustomEditText(getContext());
+        additionOperationOfTheViews(view,nextEditText);
+
+    }
+
+    public void addViewWithinText(View view, CustomEditText nextEditText){
+
+        additionOperationOfTheViews(view,nextEditText);
+
+    }
+
+    private void additionOperationOfTheViews(View view,CustomEditText nextEditText){
+
         Log.d("Pointer1",focusedEditTextPointer+"");
 
         int cursorPosition;
-        CustomEditText previousEditText, nextEditText;
+        CustomEditText previousEditText;
 
         if(focusedEditTextPointer >=0&& focusedEditTextPointer <viewArrayList.size()&&viewArrayList.get(focusedEditTextPointer) instanceof CustomEditText)
             previousEditText = (CustomEditText) viewArrayList.get(focusedEditTextPointer);
         else
             return;
 
-        nextEditText = new CustomEditText(getContext());
+
         nextEditText.setOnFocusChangeListener(focusListener);
 
         cursorPosition = previousEditText.getCursorPositionEnd();
@@ -137,6 +161,7 @@ public class ViewTextWrapperLayout extends LinearLayout {
         }
 
         Log.d("Pointer2",focusedEditTextPointer+"");
+
 
     }
 
@@ -201,12 +226,6 @@ public class ViewTextWrapperLayout extends LinearLayout {
 
         Log.d("Pointer4",focusedEditTextPointer+"");
 
-
-    }
-
-    public void setBodyMainEditText(String value){
-
-        bodyMainHint = value;
 
     }
 
