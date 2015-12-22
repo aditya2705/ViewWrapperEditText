@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                         imageTextWrapperLayout.deleteViewWithinText(v);
                     }
                 });
-                CustomEditText customEditText = new CustomEditText(MainActivity.this);
+                CustomEditText customEditText = (CustomEditText) View.inflate(MainActivity.this,R.layout.custom_edit_text,null);
                 imageTextWrapperLayout.addViewWithinText(imageView,customEditText);
             }
         });
