@@ -17,7 +17,7 @@ dependencies {
 
 ###Usage
 ####Method 1: Auto generate Edit Texts
-You may add Views withing EditTexts using **addViewWithinText(View v)**
+You may add Views within EditTexts using **addViewWithinText(View v)**
 
 Similarly delete Views using **deleteViewWithinText(View v)**
 
