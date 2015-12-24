@@ -16,7 +16,7 @@ dependencies {
 ```
 
 ###Usage
-####Method 1: Auto generate Edit Texts
+####Method 1: Add Views with auto generated Edit Texts
 You may add Views within EditTexts using **addViewWithinText(View v)**
 
 Similarly delete Views using **deleteViewWithinText(View v)**
@@ -42,7 +42,7 @@ button.setOnClickListener(new View.OnClickListener() {
 });
         
 ```
-####Method 2: Add self generating Edit Texts
+####Method 2: Add views with your own customized Edit Texts
 You may now add Views with your own customized EditTexts using **addViewWithinText(View v, CustomEditText editText)**
 
 The class **CustomEditText** extends the **EditText** class.
