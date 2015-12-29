@@ -87,7 +87,7 @@ c. You can also make your own **EditText** class by extending the **CustomEditTe
 ###Developed By
 Aditya Rathi
 
-Company: [Alpha Labz](https://www.alphalabz.com)
+Company: [Alpha Labz](http://www.alphalabz.com)
 
 ###License
 
